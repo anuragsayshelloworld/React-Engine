@@ -1,3 +1,5 @@
+const FRAGMENT = "FRAGMENT";
+
 function createTextElement(text) {
   return {
     type: "TEXT_ELEMENT",
@@ -20,6 +22,11 @@ function createElement(type, props, ...children) {
 }
 
 function render(element, container) {
+  if (element.type === FRAGMENT) {
+    element.props.children.forEach((child) => render(child, container));
+    return;
+  }
+
   const dom =
     element.type === "TEXT_ELEMENT"
       ? document.createTextNode("")
@@ -36,4 +43,4 @@ function render(element, container) {
   container.appendChild(dom);
 }
 
-export const Didact = { createElement, render };
+export const Didact = { createElement, render, Fragment: FRAGMENT };

@@ -1,0 +1,11 @@
+{
+  "name": "react-engine",
+  "private": true,
+  "scripts": {
+    "build": "esbuild main.js --bundle --outfile=dist/main.js --format=esm --loader:.js=jsx --jsx-factory=Didact.createElement --jsx-fragment=Didact.Fragment",
+    "dev": "esbuild main.js --bundle --outfile=dist/main.js --format=esm --loader:.js=jsx --jsx-factory=Didact.createElement --jsx-fragment=Didact.Fragment --watch --servedir=."
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10"
+  }
+}
