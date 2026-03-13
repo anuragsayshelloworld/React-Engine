@@ -1,5 +1,12 @@
 import { Didact } from "./didact.js";
 
-const element = Didact.createElement("h1", { title: "foo" }, "Hello");
+const element = Didact.createElement(
+  "h1",
+  { title: "foo" },
+  "Hello World",
+  "Hi There",
+);
 
-console.log(element);
+const container = document.getElementById("root");
+
+Didact.render(element, container);
